@@ -1,1 +1,42 @@
-{"firstName": "Jose", "lastName": "Sal", "userName": "jnos3", "email": "jnos3@gmail.com", "password": "&unb$wj2M#k3VZr7DEBH"}
+{
+    "marcugo1":{
+        "firstName":"Marcus",
+        "lastName":"Hugo",
+        "userName":"marcugo1",
+        "amount":4200.5,
+        "email":"marcugo1@gmail.com",
+        "password":"unb$wj2M#k3VZr7DEBH4"
+    },
+    "angleb2":{
+        "firstName":"Angel",
+        "lastName":"Baca",
+        "userName":"angleb2",
+        "amount":2200.5,
+        "email":"angelb2@gmail.com",
+        "password":"unb$wj2M#k3VZr7DEBH4"
+    },
+    "luciaj1":{
+        "firstName":"Lucia",
+        "lastName":"Juro",
+        "userName":"luciaj1",
+        "amount":1000.5,
+        "email":"luiciaj1@gmail.com",
+        "password":"unb$wj2M#k3VZr7DEBH4"
+    },
+    "abrilc2":{
+        "firstName":"Abril",
+        "lastName":"Cacerez",
+        "userName":"abrilc2",
+        "amount":1200.5,
+        "email":"abrilc2@gmail.com",
+        "password":"unb$wj2M#k3VZr7DEBH4"
+    },
+    "lazar56":{
+        "firstName":"Lazaro",
+        "lastName":"Gonzales",
+        "userName":"lazar56",
+        "amount":100.0,
+        "email":"lazar56@gmail.com",
+        "password":"unb$wj2M#k3VZr7DEBH4"
+    }
+}

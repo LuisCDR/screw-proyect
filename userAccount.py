@@ -5,147 +5,120 @@
 # url watson
 # https://api.us-south.assistant.watson.cloud.ibm.com/instances/0aabb710-5d49-4be2-ab25-40111a7d7fbe
 
-# Regex("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!#%*?&]{6,20}$").is_validate()
 
 
 # import smtplib
 # from email.mime.multipart import MIMEMultipart
 # from email.mime.text import MIMEText
-from schema import Schema, Regex, SchemaUnexpectedTypeError
-import json
-import os
+from schema import Schema, Regex
+from screwbase import StorageBase as sb
 
-class AccountScrew():
-    re:list[str] = (r'[A-Z][a-z]+', 
-              r'[A-z0-9_-]{3,10}', 
-              r'[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+', 
-              r'(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!#%*?&]{6,20}')
+
+class User():
+    re:tuple = (r"^[A-Z][a-z]+$", 
+              r"^[A-z0-9_-]{3,10}$", 
+              r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$",
+              r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!#%*?&]{6,20}$")
     
-    def __init__(self)->None:
-        pass
+    path = "users.json"
+    attr = {}
+    
+    def __init__(self, fName:str, lName:str, uName:str, amount:float, email:str ,password:str, **userData:dict)->None:
+        self.firstName = fName
+        self.lastName = lName
+        self.userName = uName
+        self.amount = amount
+        self.email = email
+        self.password = password
+        User.attr.update(self.__dict__)
     
     @classmethod
-    def signUp(cls, user:object):
-        print(AccountScrew.__exist(user.uName), "function __exist")
-        if AccountScrew.__exist(user.uName):
+    def signUp(cls):
+        if cls.is_sub(cls.attr.get("userName")):
             print('Ya existe una cuenta con ese nombre de usuario')
             res = input("Desea iniciar sesion: ")
-            if res == 'si' or 's': cls.signIn(user) 
-            else: return "Adios"            
+            return {
+                "si": lambda : cls.signIn(cls.attr.get("userName"), cls.attr.get("password")),
+                "no": lambda: print("Adios")
+                }.get(res, lambda: None)()
+            
         else:
-            if AccountScrew.__auth_logUp(dict(user)):
-                cls.__saveUser(dict(user))
+            user = cls.attr
+            if cls.__auth_logUp(user):
+                cls.__saveUser(user)
                 print("cuenta aprobada")
-    
+
     @classmethod
     def __auth_logUp(cls, user:dict):
-        print(cls.re[0])
-        schema = Schema([{
+        schema = Schema({
             'firstName':Regex(cls.re[0]),
             'lastName':Regex(cls.re[0]),
             'userName':Regex(cls.re[1]),
-            'email':Regex(cls.re[2]),
+            'amount': float,
+            'email': Regex(cls.re[2]),
             'password':Regex(cls.re[3])
-            }])
-        try:
-            
-            return schema.is_valid(user)
-        except SchemaUnexpectedTypeError as es:
-            print("ERROR", es)
+            })
+        return schema.is_valid(user)
     
     @classmethod
-    def signIn(cls, uName:str=None, password:str=None, **user:dict):
-        user = dict(user)
-        uName = uName or user['userName']
-        password = password or user['password']
-        if AccountScrew.__exist(uName):
-            if AccountScrew.auth_logIn(uName, password):
-                print('Cuenta iniciada corectamente', uName)
-        elif AccountScrew.__exist(uName)==None:
-            if AccountScrew.auth_logIn(uName, password):
-                print('Cuenta iniciada corectamente', uName)
-                print('Gracias primer usuario')
-        
+    def signIn(cls, userName:str, password:str):
+        if cls.is_sub(userName):
+            if cls.__auth_logIn(userName, password):
+                return (userName, password)
     
     @staticmethod
-    def __auth_logIn(uName, password):
-        values = {'userName': uName, 'password': password}
+    def __auth_logIn(userName, password):
+        values = {'userName': userName, 'password': password}
         
-        schema = Schema([{
-            'userName': Regex(AccountScrew.re[1]),
-            'password': Regex(AccountScrew.re[3])
-            }])
+        schema = Schema({
+            'userName': Regex(__class__.re[1]),
+            'password': Regex(__class__.re[3])
+            })
         
         return schema.is_valid(values)
     
+    
+    
     @classmethod
     def __saveUser(cls, user:dict):
-        try:
-            with open('users.json', 'a+') as jUser:
-                json.dump(user, jUser)
-        except:
-            print('Error')
+        user = {user.get('userName'):user}
+        
+        if cls.is_empty():
+            cls.editUsers(user)
+            
+        else:
+            dictUsers = cls.showUsers()
+            dictUsers.update(user)
+
+            cls.editUsers(dictUsers)
+            
+        
+    @staticmethod
+    def is_sub(userName):
+        return sb.valid_by(userName, __class__.path)
     
     @staticmethod
-    def subscribers(userName):
-        all_results = {}
-        if AccountScrew.file_is_empty("users.json"): return "empty"
-        else:
-            with open("users.json", "r") as jUser:
-                json_data = json.load(jUser)
-                for key, value in json_data.items():
-                    if userName in value:
-                        all_results[key] = value[2]
-                        print(all_results,"function subscribers")
-                        return all_results
+    def editUsers(user):
+        return sb.manageFiles(__class__.path, 'w+', **user)
     
     @staticmethod
     def showUsers():
-        with open("users.json", "r+") as jUser:
-            json_data = json.load(jUser)
-            for jd in json_data:
-                print(jd)
+        return sb.manageFiles(__class__.path, 'r+')
     
     @staticmethod
-    def file_is_empty(path):
-        stat = os.stat(path)
-        print("size file json",stat.st_size)
-        return stat.st_size==0
-    
-    @staticmethod
-    def __exist (userName):
-        if userName in AccountScrew.subscribers(userName): return True
-        elif AccountScrew.subscribers(userName) == "empty": return False
-        else: return False
-        
-
-class User():
-    def __init__(self, fName:str, lName:str, uName:str, mail:str, password:str, **userData:dict)->None:
-        self.fName = fName
-        self.lName = lName
-        self.uName = uName
-        self.mail = mail
-        self.password = password
-    
-    def __iter__(self):
-        yield 'firstName', self.fName
-        yield 'lastName', self.lName
-        yield 'userName', self.uName
-        yield 'email',self.mail
-        yield 'password', self.password
+    def is_empty():
+        return sb.is_empty(__class__.path)
         
 
 def main()->None:
-    # print("Ingresa tu primer nombre, apellido, alias, mail")
-    # inputUser = input('Separados por comas(,): ')
-    # dataUser = [iUser for iUser in inputUser.split(',')]
-    # password = input("ingresa tu contraseña: ")
-    user = User('Jose', 'Sal', 'jnos3', 'jnos3@gmail.com', '&unb$wj2M#k3VZr7DEBH')
-    # user = User(dataUser[0],dataUser[1],dataUser[2],dataUser[3], password=password)
-    AccountScrew.signUp(user)
-    # AccountScrew.signIn(user)
-    # AccountScrew.subscribers()
-    # AccountScrew.showUsers()
+    # print("Ingresa tu primer nombre, apellido, alias, amount, correo")
+    # User("Lucia", "Juro", "luciaj1", 1000.50, "luiciaj1@gmail.com","unb$wj2M#k3VZr7DEBH4")
+    # User(dataUser[0],dataUser[1],dataUser[2],dataUser[3], dataUser[4], password=password)
+    # User("Angel", "Baca", "angleb2", 2200.5,"angelb2@gmail.com", "unb$wj2M#k3VZr7DEBH4")
+    # User("Marcus", "Hugo", "marcugo1", 4200.5,"marcugo1@gmail.com", "unb$wj2M#k3VZr7DEBH4")
+    # User("Abril", "Cacerez", "abrilc2", 1200.5,"abrilc2@gmail.com", "unb$wj2M#k3VZr7DEBH4")
+    User("Lazaro", "Gonzales", "lazar56", 100.0, "lazar56@gmail.com", "unb$wj2M#k3VZr7DEBH4").signUp()
+    
 
 if __name__ == "__main__":
     main()

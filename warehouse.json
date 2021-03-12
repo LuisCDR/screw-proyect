@@ -1,0 +1,198 @@
+{
+    "Esmalte Laca Satinado Poliuretano blanco":{
+        "name":"Esmalte Laca Satinado Poliuretano blanco",
+        "price":"36.06",
+        "capacity":"750ML",
+        "quantity":"50",
+        "quality":"mbuena"
+    },
+    "Esmalte Sintetico tabaco":{
+        "name":"Esmalte Sintetico tabaco",
+        "price":"31.89",
+        "capacity":"750ML",
+        "quantity":"50",
+        "quality":"buena"
+    },
+    "Esmalte Brillante rojo":{
+        "name":"Esmalte Brillante rojo",
+        "price":"11.85",
+        "capacity":"125ML",
+        "quantity":"50",
+        "quality":"media"
+    },
+    "Esmalte Brillante amarillo":{
+        "name":"Esmalte Brillante amarillo",
+        "price":"19.80",
+        "capacity":"350ML",
+        "quantity":"50",
+        "quality":"media"
+    },
+    "Esmalte Antioxidante Brillante blanco":{
+        "name":"Esmalte Antioxidante Brillante blanco",
+        "price":"40.38",
+        "capacity":"750ML",
+        "quantity":"49",
+        "quality":"buena"
+    },
+    "Esmalte Antioxidante Pavonado gris acero":{
+        "name":"Esmalte Antioxidante Pavonado gris acero",
+        "price":"40.02",
+        "capacity":"750ML",
+        "quantity":"37",
+        "quality":"buena"
+    },
+    "Nivel Lacer Verde de Tres Lines Vector":{
+        "name":"Nivel Lacer Verde de Tres Lines Vector",
+        "price":"479.85",
+        "capacity":"30M",
+        "quantity":"10",
+        "quality":"buena"
+    },
+    "Nivel Lacer Verde de Tres Lineas con Tripode":{
+        "name":"Nivel Lacer Verde de Tres Lineas con Tripode",
+        "price":"597.00",
+        "capacity":"30M",
+        "quantity":"10",
+        "quality":"mbuena"
+    },
+    "MULTIMETRO DIGITAL BASICO":{
+        "name":"MULTIMETRO DIGITAL BASICO",
+        "price":"89.85",
+        "capacity":"600V",
+        "quantity":"20",
+        "quality":"buena"
+    },
+    "PINZA AMPERIMETRICA DIGITALAVANZADA":{
+        "name":"PINZA AMPERIMETRICA DIGITALAVANZADA",
+        "price":"164.85",
+        "capacity":"600A",
+        "quantity":"10",
+        "quality":"buena"
+    },
+    "MEDIDOR LASERLD":{
+        "name":"MEDIDOR LASERLD",
+        "price":"374.85",
+        "capacity":"50M",
+        "quantity":"4",
+        "quality":"media"
+    },
+    "MULTIMETRO DIGITAL3 EN 1":{
+        "name":"MULTIMETRO DIGITAL3 EN 1",
+        "price":"153.60",
+        "capacity":"600V",
+        "quantity":"7",
+        "quality":"buena"
+    },
+    "NIVEL LASER AUTONIVELANTELA":{
+        "name":"NIVEL LASER AUTONIVELANTELA",
+        "price":"1061.55",
+        "capacity":"30M",
+        "quantity":"2",
+        "quality":"mbuena"
+    },
+    "PIE DE REY DIGITAL":{
+        "name":"PIE DE REY DIGITAL",
+        "price":"56.55",
+        "capacity":"150MM",
+        "quantity":"18",
+        "quality":"media"
+    },
+    "TERMOMETRO LASER + HIGROMETRO":{
+        "name":"TERMOMETRO LASER + HIGROMETRO",
+        "price":"255.00",
+        "capacity":"-20\u00ba - +350\u00ba C",
+        "quantity":"15",
+        "quality":"buena"
+    },
+    "NIVEL LASER + KIT RL":{
+        "name":"NIVEL LASER + KIT RL",
+        "price":"4497.00",
+        "capacity":"2300pies",
+        "quantity":"5",
+        "quality":"mbuena"
+    },
+    "SOPORTE UNIVERSAL PARA NIVEL LASERINDICADO PARA NIVEL LASER":{
+        "name":"SOPORTE UNIVERSAL PARA NIVEL LASERINDICADO PARA NIVEL LASER",
+        "price":"41.85",
+        "capacity":"universal",
+        "quantity":"45",
+        "quality":"media"
+    },
+    "NIVEL LASER AUTONIVELANTE CON TRIPODE DE 1-3 MPROYECTA 2 LINEAS ROJAS":{
+        "name":"NIVEL LASER AUTONIVELANTE CON TRIPODE DE 1-3 MPROYECTA 2 LINEAS ROJAS",
+        "price":"299.85",
+        "capacity":"20M",
+        "quantity":"7",
+        "quality":"baja"
+    },
+    "CINTA METRICA":{
+        "name":"CINTA METRICA",
+        "price":"111.30",
+        "capacity":"50M",
+        "quantity":"34",
+        "quality":"buena"
+    },
+    "CINTA METRICA BIMATERIAL":{
+        "name":"CINTA METRICA BIMATERIAL",
+        "price":"56.79",
+        "capacity":"10M",
+        "quantity":"57",
+        "quality":"media"
+    },
+    "ALICATE CORTE DIAGONAL CON MUELLE (EXTRAIBLE)":{
+        "name":"ALICATE CORTE DIAGONAL CON MUELLE (EXTRAIBLE)",
+        "price":"68.85",
+        "capacity":"3.5MM",
+        "quantity":"30",
+        "quality":"media"
+    },
+    "ALICATE CORTE DIAGONAL MULTI FUNCION":{
+        "name":"ALICATE CORTE DIAGONAL MULTI FUNCION",
+        "price":"134.85",
+        "capacity":"3.5MM\u00b2",
+        "quantity":"35",
+        "quality":"buena"
+    },
+    "ALICATE PICO DE LORO":{
+        "name":"ALICATE PICO DE LORO",
+        "price":"59.85",
+        "capacity":"3.5MM",
+        "quantity":"26",
+        "quality":"media"
+    },
+    "ALICATE UNIVERSAL CON MUELLE (EXTRAIBLE)":{
+        "name":"ALICATE UNIVERSAL CON MUELLE (EXTRAIBLE)",
+        "price":"80.85",
+        "capacity":"3.5MM",
+        "quantity":"29",
+        "quality":"buena"
+    },
+    "BOTADOR CILINDRICO CON PROTECCION":{
+        "name":"BOTADOR CILINDRICO CON PROTECCION",
+        "price":"11.85",
+        "capacity":"10MM",
+        "quantity":"47",
+        "quality":"mbuena"
+    },
+    "FORMON MANGO BIMATERIAL MINI":{
+        "name":"FORMON MANGO BIMATERIAL MINI",
+        "price":"62.55",
+        "capacity":"4MM",
+        "quantity":"75",
+        "quality":"media"
+    },
+    "FORMON MANGO BIMATERIAL MEDIO":{
+        "name":"FORMON MANGO BIMATERIAL MEDIO",
+        "price":"77.85",
+        "capacity":"24MM",
+        "quantity":"38",
+        "quality":"media"
+    },
+    "CLAVOS INOX":{
+        "name":"CLAVOS INOX",
+        "price":"10.5",
+        "capacity":"5CM",
+        "quantity":"300KG",
+        "quality":"mbuena"
+    }
+}
